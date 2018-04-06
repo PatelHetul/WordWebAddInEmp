@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\WordWebAddInEmpManifest.xml
+C:\Users\hetulpatel\source\Project\WordWebAddInEmp\WordWebAddInEmp\bin\Debug\WordWebAddInEmp.debugapp

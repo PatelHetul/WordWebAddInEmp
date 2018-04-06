@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>Word Add-In with Commands Sample</title>
+
+	<script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="Scripts/FabricUI/MessageBanner.js" type="text/javascript"></script>
+	<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+
+
+	<link href="EditEmployee.css" rel="stylesheet" type="text/css" />
+	<script src="EditEmployee.js" type="text/javascript"></script>
+
+	<!-- For the Office UI Fabric, go to https://aka.ms/office-ui-fabric to learn more. -->
+	<link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.min.css">
+	<link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/2.1.0/fabric.components.min.css">
+
+
+</head>
+<body>
+	<div id="content-header">
+		<div class="padding">
+			<h1>Welcome</h1>
+		</div>
+	</div>
+	<div id="content-main">
+		<div class="padding">
+			<p>Select Employee and Update Employee Data using the Word JavaScript API.</p>
+			<br />
+			<h3>Try it out</h3>
+
+			Select Employee:  <select id="ddlEmployee"></select>
+			<br /><br />
+			<button id="edit">Edit Selected Employee</button>
+			<br /><br />
+			<button id="update">Update Employee Data</button>
+			<br /><br />
+			<button id="emplist" onclick="return GoTOList()">Back To Employee List</button>
+			
+		</div>
+	</div>
+	<br />
+	
+	<!--<script src="Scripts/jquery-1.9.1.js"></script>
+	<script src="Scripts/jquery.fabric.min.js"></script>-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script>
+		function BindEmp() {
+			$.ajax({
+				url: '../../api/Employee',
+				type: 'GET',
+				data: {
+					empid: 0
+				},
+				contentType: 'application/json;charset=utf-8'
+			}).done(function (data) {
+				var depemp = document.getElementById('ddlEmployee');
+				for (var i = 0; i < data.length; i++) {
+					var opt = document.createElement('option');
+					opt.innerHTML = data[i].employee_Name;
+					opt.value = data[i].emp_id;
+					depemp.appendChild(opt);
+				}
+			}).fail(function (status) {
+				result = "Could not communicate with the server.";
+			});
+		}
+		BindEmp();
+
+		function GoTOList() {
+	
+			window.location.href = "../../EmployeeList.html";
+			
+		}
+	</script>
+</body>
+</html>

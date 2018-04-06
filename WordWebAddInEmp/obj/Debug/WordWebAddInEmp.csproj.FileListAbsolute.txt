@@ -1,0 +1,2 @@
+C:\Users\hetulpatel\source\Project\WordWebAddInEmp\WordWebAddInEmp\obj\Debug\WordWebAddInEmp.csproj.CoreCompileInputs.cache
+C:\Users\hetulpatel\source\Project\WordWebAddInEmp\WordWebAddInEmp\obj\Debug\WordWebAddInEmp.csprojResolveAssemblyReference.cache
